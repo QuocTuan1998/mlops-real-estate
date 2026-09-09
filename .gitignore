@@ -1,0 +1,20 @@
+# MLflow
+mlflow.db
+mlruns/
+mlartifacts/
+
+# Python
+__pycache__/
+build/
+dist/
+
+# Testing
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/exploration_test_output.ipynb
+
+# Model artifacts (if exported locally, not via MLflow)
+models/*
+!models/.gitkeep

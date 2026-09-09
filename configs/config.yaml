@@ -1,0 +1,50 @@
+model:
+  name: "RealEstatePricePredictor"
+  version: "1.0"
+  type: "regression"
+  
+data:
+  raw_path: "data/raw/housing.csv"
+  processed_dir: "data/processed"
+  target_column: "price"
+  numeric_features:
+    - area
+    - bedrooms
+    - bathrooms
+    - floor
+    - property_age
+  categorical_features:
+    - location
+    - property_type
+  required_columns:
+    - area
+    - bedrooms
+    - bathrooms
+    - floor
+    - property_age
+    - location
+    - property_type
+    - price
+
+validation:
+  min_area: 1
+  max_area: 100000
+  min_bedrooms: 0
+  max_bedrooms: 20
+  min_bathrooms: 0
+  max_bathrooms: 20
+  min_price: 1
+
+training:
+  test_size: 0.2
+  random_state: 42
+
+promotion:
+  metric: "mae"
+  # candidate must be at least this much better (lower MAE) to be promoted
+  min_improvement: 0.0
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "real-estate-price-prediction"
+  registry_model_name: "real_estate_price_model"

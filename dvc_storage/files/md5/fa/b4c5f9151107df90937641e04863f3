@@ -1,0 +1,21 @@
+area,bedrooms,bathrooms,floor,property_age,location,property_type,price
+80,2,1,5,10,Ha Noi,Apartment,3500000000
+120,3,2,3,5,Ho Chi Minh,House,7500000000
+45,1,1,8,15,Da Nang,Condo,1500000000
+65,2,1,2,8,Hai Phong,Townhouse,2200000000
+55,2,1,4,12,Can Tho,Apartment,1800000000
+150,4,3,1,3,Ho Chi Minh,House,9500000000
+70,2,2,6,7,Nha Trang,Condo,2600000000
+90,3,2,2,6,Hue,Townhouse,3200000000
+110,3,2,3,4,Binh Duong,House,4800000000
+75,2,2,7,9,Ha Noi,Apartment,3100000000
+60,2,1,3,11,Vung Tau,Condo,2000000000
+95,3,2,5,5,Quang Ninh,Apartment,3400000000
+130,4,3,2,2,Ho Chi Minh,House,8800000000
+50,1,1,9,14,Dong Nai,Condo,1600000000
+85,2,2,4,6,Ha Noi,Apartment,3600000000
+100,3,2,3,7,Da Nang,Townhouse,3900000000
+140,4,3,1,3,Long An,House,5600000000
+65,2,1,6,10,Hai Phong,Apartment,2300000000
+78,2,2,5,8,Nha Trang,Apartment,2800000000
+115,3,2,2,4,Binh Duong,Townhouse,4500000000
