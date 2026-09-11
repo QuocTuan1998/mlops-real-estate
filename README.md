@@ -239,3 +239,34 @@ MSYS_NO_PATHCONV=1 podman run -d --name real-estate-api -p 8000:8000 real-estate
 2. **Build & Push** (main branch only) — build the Docker image, smoke-test `/health`, then push to Docker Hub tagged with `latest` and the commit SHA.
 
 Configure `DOCKER_USERNAME` and `DOCKER_PASSWORD` as GitHub repository secrets to enable image publishing.
+
+## DVC Remote Storage (AWS S3)
+
+This project uses an **AWS S3 bucket** as the DVC remote for storing actual dataset bytes.
+Only the lightweight `.dvc` pointer files are committed to git.
+
+### One-time setup
+
+```bash
+dvc remote add -d s3remote s3://<your-bucket-name>/dvc-store
+dvc remote modify s3remote region <your-aws-region>
+```
+
+Configure AWS credentials locally (not committed to git):
+
+```bash
+aws configure
+# or export AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY manually
+```
+
+### Push / pull data
+
+```bash
+dvc push   # upload data to S3
+dvc pull   # download data from S3
+```
+
+### CI/CD
+
+GitHub Actions authenticates to S3 using repository secrets (`AWS_ACCESS_KEY_ID`,
+`AWS_SECRET_ACCESS_KEY`) — never committed to git. See `.github/workflows/dvc.yml`.
