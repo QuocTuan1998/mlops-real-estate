@@ -27,6 +27,9 @@ jobs:
         run: |
           dvc remote add -d localstorage dvc_storage -f
 
+      - name: Status dataset (DVC)
+        run: dvc status
+
       - name: Pull dataset (DVC)
         run: dvc pull -f
 
