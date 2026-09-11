@@ -28,7 +28,7 @@ jobs:
           dvc remote add -d localstorage dvc_storage -f
 
       - name: Pull dataset (DVC)
-        run: dvc pull data/raw/housing.csv.dvc
+        run: dvc pull -f
 
       - name: Run data validation + retraining pipeline
         env:
