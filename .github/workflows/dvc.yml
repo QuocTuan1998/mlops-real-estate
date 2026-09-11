@@ -39,7 +39,7 @@ jobs:
       - name: Run reproducible train + update pipeline
         env:
           GITHUB_SHA: ${{ github.sha }}
-        run: dvc repro --force
+        run: python -m src.pipeline.update_pipeline
 
       - name: Upload MLflow tracking DB as artifact
         if: always()
