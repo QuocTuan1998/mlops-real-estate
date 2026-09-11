@@ -55,8 +55,9 @@ def _get_production_version(client: MlflowClient, model_name: str):
 
 
 def _load_model_by_version(model_name: str, version: str):
+    logger.info("Loading model %s version %s", model_name, version)
     uri = f"models:/{model_name}/{version}"
-    return mlflow.sklearn.load_model(uri)
+    return mlflow.pyfunc.load_model(uri)
 
 
 def _promote_version(client: MlflowClient, model_name: str, version: str) -> None:

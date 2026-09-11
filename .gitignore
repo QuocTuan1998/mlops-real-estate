@@ -18,3 +18,4 @@ notebooks/exploration_test_output.ipynb
 # Model artifacts (if exported locally, not via MLflow)
 models/*
 !models/.gitkeep
+/mlruns

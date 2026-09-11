@@ -82,7 +82,7 @@ def run_training(
         )
         mlflow.sklearn.log_model(
             sk_model=model,
-            artifact_path="model",
+            name="model",
             registered_model_name=registered_model_name,
         )
 

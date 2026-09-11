@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python -m src.training.train_pipeline
+    deps:
+    - path: configs/config.yaml
+      hash: md5
+      md5: 4f528457e042d8e8c407b7a528c58ce1
+      size: 930
+    - path: data/raw/housing.csv
+      hash: md5
+      md5: da67efb21e78b78825c7502d38aa691f
+      size: 490
+    - path: src/data/preprocess.py
+      hash: md5
+      md5: a451e7d91ac0860ab917c5074a9fd9f8
+      size: 3767
+    - path: src/features/build_features.py
+      hash: md5
+      md5: 5c9948b40e60a9a8be8cb2d2010969f4
+      size: 1409
+    - path: src/models/train.py
+      hash: md5
+      md5: 7a17e183f315d347d6b8f233c759a81f
+      size: 1804
+    - path: src/training/train_pipeline.py
+      hash: md5
+      md5: 008d60ab28c2fc79562c236fa850d81d
+      size: 3227
+    outs:
+    - path: mlruns
+      hash: md5
+      md5: 6fc244131e019d1b29349dddf4cac7fb.dir
+      size: 6482144
+      nfiles: 20
+  update:
+    cmd: python -m src.pipeline.update_pipeline
+    deps:
+    - path: data/raw/housing.csv
+      hash: md5
+      md5: da67efb21e78b78825c7502d38aa691f
+      size: 490
+    - path: mlruns
+      hash: md5
+      md5: f6c3530c4746d9af2f8f1351ed8fbd41.dir
+      size: 8102735
+      nfiles: 26
+    - path: src/models/evaluate.py
+      hash: md5
+      md5: 850d44114a3b2ed1e21ced508f5cd815
+      size: 1112
+    - path: src/pipeline/update_pipeline.py
+      hash: md5
+      md5: ac7f4a8d6c93beb0076b62139449f588
+      size: 8729
+    outs:
+    - path: mlflow.db
+      hash: md5
+      md5: 18da8bdbabe022606d0a90802c960e3b
+      size: 897024

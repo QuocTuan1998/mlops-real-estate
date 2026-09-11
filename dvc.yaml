@@ -1,0 +1,24 @@
+stages:
+  train:
+    cmd: python -m src.training.train_pipeline
+    deps:
+      - data/raw/housing.csv
+      - src/data/preprocess.py
+      - src/features/build_features.py
+      - src/models/train.py
+      - src/training/train_pipeline.py
+      - configs/config.yaml
+    outs:
+      - mlruns:
+          persist: true
+
+  update:
+    cmd: python -m src.pipeline.update_pipeline
+    deps:
+      - data/raw/housing.csv
+      - src/models/evaluate.py
+      - src/pipeline/update_pipeline.py
+      - mlruns
+    outs:
+      - mlflow.db:
+          persist: true
