@@ -32,12 +32,6 @@ jobs:
       - name: Status dataset (DVC)
         run: dvc status
 
-      - name: Status dataset (DVC)
-        run: dvc add data/raw/housing.csv
-
-      - name: Status dataset (DVC)
-        run: dvc push
-
       - name: Pull dataset (DVC)
         run: dvc pull -f
 
