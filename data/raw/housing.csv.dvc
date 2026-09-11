@@ -1,5 +1,5 @@
 outs:
-- md5: 3158b29853a609d07caae2068e62e0cd
-  size: 5248
+- md5: 9881fb0de5b82250e9db0e920462b7bc
+  size: 454
   hash: md5
   path: housing.csv
