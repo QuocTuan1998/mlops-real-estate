@@ -11,4 +11,4 @@ fastapi
 uvicorn[standard]
 pydantic
 httpx
-cat .dvc/config
+dvc[s3]
