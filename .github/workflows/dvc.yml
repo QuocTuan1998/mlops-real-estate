@@ -33,7 +33,7 @@ jobs:
         run: dvc status
 
       - name: Pull dataset (DVC)
-        run: dvc pull -f
+        run: dvc pull --run-cache
 
       - name: Run data validation + retraining pipeline
         env:
