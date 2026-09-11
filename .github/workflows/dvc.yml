@@ -2,8 +2,10 @@ name: ML Retraining Pipeline
 
 on:
   push:
-    paths:
-      - "data/raw/housing.csv.dvc"
+    branches:
+      - main
+    # paths:
+    #   - "data/raw/housing.csv.dvc"
 
 jobs:
   retrain:
