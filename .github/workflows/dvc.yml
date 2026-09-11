@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - "data/raw/housing.csv.dvc"
+    paths:
+      - "data/raw/housing.csv.dvc"
 
 jobs:
   retrain:
@@ -25,17 +25,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Cache DVC storage
-        uses: actions/cache@v4
-        with:
-          path: dvc_storage
-          key: dvc-storage-${{ hashFiles('data/raw/housing.csv.dvc') }}
-
       - name: Configure DVC remote
         run: dvc remote add -d localstorage dvc_storage -f
-
-      - name: Status dataset (DVC)
-        run: dvc status
 
       - name: Pull dataset (DVC)
         run: dvc pull -f

@@ -1,5 +1,6 @@
 [core]
-    remote = localstorage
     autostage = true
-['remote "localstorage"']
-    url = ../dvc_storage
+    remote = s3remote
+['remote "s3remote"']
+    url = s3://dvc-sample-test/dvc-store
+    region = ap-southeast-1
