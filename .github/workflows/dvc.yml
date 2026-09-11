@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "data/raw/housing.csv.dvc"
 
 jobs:
   retrain:
